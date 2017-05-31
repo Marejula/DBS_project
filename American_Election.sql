@@ -6,7 +6,7 @@ hashtag_name          VARCHAR(50) NOT NULL,
 CONSTRAINT Hashtag_pkey PRIMARY KEY (hashtag_name));
 
 CREATE TABLE TWEET(
-t_ID                      INTEGER NOT NULL,
+t_ID                      SERIAL NOT NULL,
 handle                    VARCHAR(30) NOT NULL,
 t_text                    VARCHAR(200),
 is_retweet                BOOLEAN,
@@ -19,7 +19,7 @@ favorite_count            INTEGER,
 CONSTRAINT Tweet_pkey PRIMARY KEY (t_ID));
 
 CREATE TABLE ENTHAELT(
-e_ID            INTEGER NOT NULL,
+e_ID            SERIAL NOT NULL,
 t_ID            INTEGER NOT NULL,
 hashtag_name    VARCHAR(50) NOT NULL,
 CONSTRAINT Enthaelt_pkey PRIMARY KEY (e_ID),
