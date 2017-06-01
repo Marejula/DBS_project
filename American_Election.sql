@@ -19,10 +19,9 @@ favorite_count            INTEGER,
 CONSTRAINT Tweet_pkey PRIMARY KEY (t_ID));
 
 CREATE TABLE ENTHAELT(
-e_ID            SERIAL NOT NULL,
 t_ID            INTEGER NOT NULL,
 hashtag_name    VARCHAR(50) NOT NULL,
-CONSTRAINT Enthaelt_pkey PRIMARY KEY (e_ID),
+CONSTRAINT Enthaelt_pkey PRIMARY KEY (t_ID, hashtag_name),
 CONSTRAINT e_Hashtag_fkey FOREIGN KEY (hashtag_name)
                           REFERENCES HASHTAG(hashtag_name),
 CONSTRAINT e_Tweet_fkey FOREIGN KEY (t_ID)
