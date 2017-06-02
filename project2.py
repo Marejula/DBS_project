@@ -14,22 +14,22 @@ print "Connection to database is successful"
 cur = conn.cursor() #Der Befehl öffnet ein cursor, das die Datenbankoperationen ausführen wird
 
 
-#Hiermit werden die Daten aus der Datei tweets.csv in die Relation tweets in die Datenbank Election reinkopiert.
+# Hiermit werden die Daten aus der Datei tweets.csv in die Relation tweets in die Datenbank Election reinkopiert.
+# Es muss vorher von Hand die erste Spalte von 'tweets.csv' gelöscht werden.
 tweets = open("tweets.csv", 'r')
-cur.copy_from(tweets, 'tweet', sep=';', null='', size=8192, columns=('handle', 't_text', 'is_retweet', 'original_author', 't_time', 'in_reply_to_screen_name', 'is_quote_status', 'retweet_count', 'favorite_count'))
-# Es wird jedoch immer eine Fehlermeldung ausgegeben
+cur.copy_from(tweets, 'tweet', sep=';', null='', size=8192, columns=('t_id','handle', 't_text', 'is_retweet', 'original_author', 't_time', 'in_reply_to_screen_name', 'is_quote_status', 'retweet_count', 'favorite_count'))
+tweets.close()
 
-#Dieses Einfügen der Daten funktioniert:
+# Hiermit werden die Hashtags eingelesen:
 hashtags = open("hashtags.csv", 'r')
 cur.copy_from(hashtags, 'hashtag', sep=';', null='', size=8192)
+hashtags.close()
 
-
-#Funktioniert nicht, wegen Fremdschlüssel. Da die 'tweet'-Ralation noch nicht gefüllt ist:
+# Die Daten aus "enthaelt.csv" werden importiert
 enthaelt = open("enthaelt.csv", 'r')
 cur.copy_from(enthaelt, 'enthaelt', sep=';', null='', size=8192)
-
-tweets.close()
-hashtags.close()
 enthaelt.close()
+
+
 conn.commit()
 conn.close()
