@@ -1,13 +1,11 @@
-
 ﻿
-
 
 CREATE TABLE HASHTAG(
 hashtag_name          VARCHAR(50) NOT NULL,
 CONSTRAINT Hashtag_pkey PRIMARY KEY (hashtag_name));
 
 CREATE TABLE TWEET(
-t_ID                      SERIAL NOT NULL,
+t_ID                      INTEGER NOT NULL,
 handle                    VARCHAR(30) NOT NULL,
 t_text                    VARCHAR(200),
 is_retweet                BOOLEAN,
@@ -26,4 +24,4 @@ CONSTRAINT Enthaelt_pkey PRIMARY KEY (t_ID, hashtag_name),
 CONSTRAINT e_Hashtag_fkey FOREIGN KEY (hashtag_name)
                           REFERENCES HASHTAG(hashtag_name),
 CONSTRAINT e_Tweet_fkey FOREIGN KEY (t_ID)
-                        REFERENCES TWEET(t_ID));
+                          REFERENCES TWEET(t_ID));
