@@ -7,7 +7,7 @@ import psycopg2.extras
 import csv
 import sys
 
-conn = psycopg2.connect("host='agdbs−edu01.imp.fu−berlin.de' port='5432' dbname='American_Election' user='student' password='password'") #Dieses Modul erstellt die Verbindung mit der gegebenen Datenbank
+conn = psycopg2.connect("host='agdbs-edu01.imp.fu-berlin.de' port='5432' dbname='American_Election' user='student' password='password'") #Dieses Modul erstellt die Verbindung mit der gegebenen Datenbank
 
 print "Connection to database is successful"
 
