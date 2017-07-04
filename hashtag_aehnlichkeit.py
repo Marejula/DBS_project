@@ -1,8 +1,8 @@
-import pandas as pd
-import numpy as np
+import pandas as pd # Python Data Analysis Library
+import numpy as np # Scientific Computing
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt # Python 2D plotting library
 
 # Einlesen aller Tweetnummern und Hashtags aus der Enthaelt-Tabelle
 df = pd.read_csv('kopie.csv')
