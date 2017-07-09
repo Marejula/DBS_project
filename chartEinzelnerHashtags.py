@@ -65,6 +65,6 @@ else:
 	plt.bar(yPos, performance, align='center', alpha=0.5)
 	plt.xticks(yPos, objects, rotation="vertical")
 	plt.ylabel('Haeufigkeit')
-	plt.title('Haufigkeit von ' +gesHashtag+ 'pro Tag')
+	plt.title('Haeufigkeit von ' +gesHashtag+ ' pro Tag')
  
 	plt.show()
